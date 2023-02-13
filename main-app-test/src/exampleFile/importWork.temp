@@ -1,0 +1,53 @@
+    <!-- Modal เพิ่มรายละเอียดใบรับ ***ตัดออกมาก่อน-->
+    <div class="modal fade rounded-3" id="newImportDetail" tabindex="-1">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary opacity-75" style="color:white ;font-size:20px ;">
+                    รายละเอียดใบรับ
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-4" style="text-align:left;">
+                            <label>ขนาดยาง</label>
+                            <select class="form-select" id="findSize" v-model="this.import_detail.rub_size_id">
+                                <option v-for="rubberSize in rubber_size" :key="rubberSize.id" :value="rubberSize.id">
+                                    {{ rubberSize.rub_size_id }} > {{ rubberSize.rub_size_detail }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-3" style="text-align:left;">
+                            <label>ยี่ห้อยาง</label>
+                            <select class="form-select" id="findBrand" v-model="this.import_detail.rub_brand_id">
+                                <option v-for="rubberBrand in rubber_brand" :key="rubberBrand.rub_brand_id"
+                                    :value="rubberBrand.rub_brand_id">
+                                    {{ rubberBrand.rub_brand_shotname }} > {{ rubberBrand.rub_brand_name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-2" style="text-align:left;">
+                            <label>หมายเลขยาง(จากโครง)</label>
+                            <input type="text" class="form-control" v-model="this.import_detail.manufac_id"
+                                @input="(this.import_detail.manufac_id = this.import_detail.manufac_id.toUpperCase())" />
+                        </div>
+                        <div class="col-3" style="text-align:left;">
+                            <label>หมายเหตุ</label>
+                            <input type="text" class="form-control" v-model="this.import_detail.import_detail_status" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- ปุ่มปิด -->
+                    <button type="button" class="btn btn-secondary"
+                        @click.prevent="clearSelect2(); this.func.hideModal('newImportDetail') ">
+                        <font-awesome-icon icon="fa-solid fa-ban" />&nbsp;ปิดหน้าต่าง
+                    </button>
+                    <!-- ปุ่มบันทึก -->
+                    <button id="btn" class="btn btn-primary" @click.prevent="saveImportDetail();">
+                        <font-awesome-icon icon="fa-solid fa-circle-check" />&nbsp;บันทึก
+                    </button>
+                </div>
+                <!-- {{ this.import_detail }} -->
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->

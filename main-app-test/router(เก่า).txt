@@ -1,0 +1,71 @@
+import { createWebHistory, createRouter } from "vue-router";
+// import Router from 'vue-router';
+// import Vue from "vue";
+const newCustomer = () => ("@/components/newCustomer.vue");
+// import showCustomer from "@/components/showCustomer.vue";
+const showCustomer = () => import("@/components/showCustomer.vue");
+const viewContent = () => import("@/components/viewContent.vue");
+const productionType = () => import("@/components/productionType.vue");
+const productBrand = () => import("@/components/productBrand.vue");
+const productSize = () => import("@/components/productSize.vue");
+const productStyle = () => import("@/components/productStyle.vue");
+const productGrade = () => import("@/components/productGrade.vue");
+const productFixcost = () => import("@/components/productFixcost.vue");
+
+//Vue.use(Router);
+
+const routes = [
+  {
+    path: "/",
+    name: "viewcontent",
+    component: viewContent,
+  },
+  {
+    path: "/newcustomer",
+    name: "newcustomer",
+    component: newCustomer,
+  },
+  {
+    path: "/showcustomer",
+    name: "showcustomer",
+    component: showCustomer,
+  },
+  {
+    path: "/typep",
+    name: "typep",
+    component: productionType,
+  },
+  {
+    path: "/brand",
+    name: "brand",
+    component: productBrand,
+  },
+  {
+    path: "/size",
+    name: "size",
+    component: productSize,
+  },
+  {
+    path: "/style",
+    name: "style",
+    component: productStyle,
+  },
+  {
+    path: "/grade",
+    name: "grade",
+    component: productGrade,
+  },
+  {
+    path: "/fixcost",
+    name: "fixcost",
+    component: productFixcost,
+  },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+
+export default router;

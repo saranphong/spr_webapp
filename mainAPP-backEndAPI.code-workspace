@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "main-app-test"
+		},
+		{
+			"path": "backend-api"
+		}
+	],
+	"settings": {
+		"vue3snippets.enable-compile-vue-file-on-did-save-code": false
+	}
+}
